@@ -1,0 +1,10 @@
+.custom-tooltip .ant-tooltip-inner {
+  background-color: #8b8b8b; /* Custom background color */
+  color: #fff; /* Custom text color */
+  border-radius: 4px; /* Custom border radius */
+  padding: 10px; /* Custom padding */
+}
+
+.custom-tooltip .ant-tooltip-arrow {
+  display: none;
+}
