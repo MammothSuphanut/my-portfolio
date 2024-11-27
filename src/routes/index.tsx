@@ -1,11 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import TempPage from "../pages/TempPage";
-import LandingPage from "@pages/LandingPage";
 import MainLayout from "@Layouts/MainLayout";
 import AboutMe from "@pages/AboutMe";
 import Resume from "@pages/Resume";
 import Tldr from "@pages/Tldr";
-import MyJourney from "@pages/MyJourney";
+import Projects from "@pages/Projects";
+import NotFound from "@pages/NotFound";
 
 const Routers = () => {
   const allRoutes = createBrowserRouter([
@@ -15,15 +14,11 @@ const Routers = () => {
       children: [
         {
           path: "",
-          element: <LandingPage />,
-        },
-        {
-          path: "too-long-dont-read",
           element: <Tldr />,
         },
         {
-          path: "my-journey",
-          element: <MyJourney />,
+          path: "projects",
+          element: <Projects />,
         },
         {
           path: "about-me",
@@ -34,10 +29,14 @@ const Routers = () => {
           element: <Resume />,
         },
         {
-          path: "temp",
-          element: <TempPage />,
+          path: "*",
+          element: <NotFound />,
         },
       ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
 

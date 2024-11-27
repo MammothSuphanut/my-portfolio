@@ -12,12 +12,16 @@ interface Props {
   currentMenu: IMenu;
 
   navigateTo: (path: string, navigate: (path: string) => void) => void;
+
+  curTheme: string;
+  setTheme: (theme: string) => void;
 }
 
 const useAuthStore = create<Props>((set) => ({
   count: 0,
-  path: "too-long-dont-read",
+  path: "",
   currentMenu: menuList[0],
+  curTheme: "whiteTheme",
 
   setCount: async (value: number) => {
     set({ count: value });
@@ -33,6 +37,10 @@ const useAuthStore = create<Props>((set) => ({
       set({ currentMenu: curMenu[0], path: path });
       navigate(`/${path}`);
     }
+  },
+
+  setTheme: async (theme: string) => {
+    set({ curTheme: theme });
   },
 }));
 

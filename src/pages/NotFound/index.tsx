@@ -1,13 +1,12 @@
-import "src/App.css";
 import Text from "@components/Text";
 import Flex from "@components/Flex";
 
-const MyJourney = () => {
+const NotFound = () => {
   return (
     <Flex>
-      <Text>MyJourney</Text>
+      <Text>404 Not thing Here</Text>
     </Flex>
   );
 };
 
-export default MyJourney;
+export default NotFound;

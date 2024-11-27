@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 interface Props {
   width?: string | number;
   height?: string | number;
