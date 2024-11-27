@@ -1,22 +1,8 @@
-import { css } from "@emotion/react";
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import styled from "@emotion/styled";
 import React, { ReactNode } from "react";
 
-interface CardType {
-  opacity?: number;
-  padding?: string | number;
-  borderRadius?: number;
-  border?: string;
-  borderHover?: string;
-  width?: string | number;
-  height?: string | number;
-  minHeight?: string | number;
-  relative?: boolean;
-  left?: string;
-  top?: string;
-  noBorder?: boolean;
-  backgroundColor?: string;
-}
+interface CardType {}
 
 interface Props extends CardType {
   onClick?: () => void;
@@ -26,45 +12,14 @@ interface Props extends CardType {
 }
 
 const CustomCard = styled.div<CardType>`
-  ${({
-    opacity,
-    padding,
-    borderRadius,
-    width,
-    height,
-    relative,
-    left,
-    top,
-    border,
-    noBorder,
-    borderHover,
-    backgroundColor,
-    minHeight,
-  }) => {
-    return css`
-      background: ${backgroundColor ? backgroundColor : "#FFF"};
-      height: ${(typeof height === "number" ? `${height}px` : height) || ""};
-      min-height: ${(typeof minHeight === "number"
-        ? `${minHeight}px`
-        : minHeight) || ""};
-      width: ${(typeof width === "number" ? `${width}px` : width) || ""};
-      padding: ${(typeof padding === "number" ? `${padding}px` : padding) ||
-      "20px"};
-      border: ${noBorder ? null : border ? `${border}` : `1.5px solid #CBD5E1`};
-      border-radius: ${(typeof borderRadius === "number"
-        ? `${borderRadius}px`
-        : borderRadius) || "8px"};
-      opacity: ${opacity ? `${opacity}%` : "100%"};
-
-      position: ${relative ? `relative` : ``};
-      left: ${(typeof left === "number" ? `${left}px` : left) || ""};
-      top: ${(typeof top === "number" ? `${top}px` : top) || ""};
-
-      &:hover {
-        border: ${borderHover ? `${borderHover}` : ``};
-      }
-    `;
-  }};
+  background: #FFF
+  padding:20px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 8px;
+  opacity: 100%;
+  padding: 60px 40px 40px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: scroll;
 `;
 
 function Card({

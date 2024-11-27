@@ -10,21 +10,19 @@ function App() {
   const { locale } = useLocalization();
   // const fontFamily = "Noto Sans Thai";
   return (
-    <>
-      <ConfigProvider
-        locale={locale === "th" ? locale_Th : locale_En}
-        theme={{
-          token: {
-            // fontFamily: fontFamily,
-          },
-          components: {},
-        }}
-      >
-        <ErrorBoundary>
-          <Routers />
-        </ErrorBoundary>
-      </ConfigProvider>
-    </>
+    <ConfigProvider
+      locale={locale === "th" ? locale_Th : locale_En}
+      theme={{
+        token: {
+          // fontFamily: fontFamily,
+        },
+        components: {},
+      }}
+    >
+      <ErrorBoundary>
+        <Routers />
+      </ErrorBoundary>
+    </ConfigProvider>
   );
 }
 

@@ -3,6 +3,13 @@ import "antd/dist/reset.css";
 import { Image as AImage, ImageProps } from "antd";
 import { useState } from "react";
 import Tooltip from "@components/Tooltip";
+// import flip_me from "@assets/Icon/flip_me.svg";
+// import flip_me_2 from "@assets/Icon/flip_me_2.svg";
+
+const Container = styled.div<ImageType>`
+  position: relative;
+  display: inline-block;
+`;
 
 interface ImageType {
   rotate?: number;
@@ -15,7 +22,7 @@ interface ImageType {
 
 const StyledImage = styled(AImage)<ImageType>`
   transition: transform 0.3s ease;
-  // ${({ rotate }) => `transform: rotate(${rotate || 0}deg);`}
+  ${({ rotate }) => `transform: rotate(${rotate || 0}deg);`}
 
   ${({ flip, rotate }) =>
     flip
@@ -25,10 +32,8 @@ const StyledImage = styled(AImage)<ImageType>`
   :hover {
     ${({ rotateHover, HoverScale, flip }) =>
       !flip
-        ? `transform: scale(${HoverScale || 1.05}) rotate(${
-            rotateHover || 0
-          }deg);`
-        : `transform: scale(${HoverScale || 1.05}) rotate(${
+        ? `transform: scale(${HoverScale || 1}) rotate(${rotateHover || 0}deg);`
+        : `transform: scale(${HoverScale || 1}) rotate(${
             rotateHover || 0
           }deg) rotateY(180deg);`}
   }
@@ -91,21 +96,37 @@ const Image = ({
   };
 
   return (
-    <Tooltip text={tooltipText} position={tooltipPosition}>
-      <StyledImage
-        preview={false}
-        src={flip ? flipSrc : src}
-        flip={flip}
-        rotate={rotate}
-        isAnimate={isAnimate}
-        onMouseEnter={handleMouseEnter}
-        rotateHover={props.rotateHover || randRotation}
-        isPicBorder={isPicBorder}
-        onClick={handleClick}
-        style={{ ...props.style }}
-        {...props}
-      />
-    </Tooltip>
+    <Container>
+      <Tooltip text={tooltipText} position={tooltipPosition}>
+        <StyledImage
+          preview={false}
+          src={flip ? flipSrc : src}
+          flip={flip}
+          rotate={rotate}
+          isAnimate={isAnimate}
+          onMouseEnter={handleMouseEnter}
+          rotateHover={props.rotateHover || randRotation}
+          isPicBorder={isPicBorder}
+          onClick={handleClick}
+          style={{ ...props.style }}
+          {...props}
+        />
+      </Tooltip>
+      {/* {canFlip && (
+        <img
+          src={flip ? flip_me_2 : flip_me}
+          style={{
+            width: 50,
+            rotate: flip ? "245deg" : "24deg",
+            position: "absolute",
+            right: 0,
+            bottom: 0,
+            cursor: "pointer",
+          }}
+          onClick={handleClick}
+        />
+      )} */}
+    </Container>
   );
 };
 
